@@ -50,7 +50,7 @@ function git:loadmanifest(manifest, i)
             end
         end
     end
-    return files
+    return files, directories
 end
 
 return git
