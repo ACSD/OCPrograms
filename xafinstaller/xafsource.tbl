@@ -1,0 +1,30 @@
+{   ["src"] = {
+        ["core"] = { "xafcore.lua" },
+        ["graphic"] = {
+         	"button.lua",
+            "checkbox.lua",
+            "component.lua",
+            "list.lua",
+            "passwordfield.lua",
+            "progressbar.lua",
+            "slider.lua",
+            "spinner.lua",
+            "switch.lua",
+            "textfield.lua"
+        },
+        ["network"] = {
+         	"client.lua"
+            "dnsclient.lua"
+            "dnsserver.lua"
+            "dtpclient.lua"
+            "dtpserver.lua"
+            "ftpclient.lua"
+            "ftpserver.lua"
+            "server.lua"
+        },
+        ["utility"] = {
+            "httpstream.lua",
+            "redstream.lua"
+        }
+    }
+}
