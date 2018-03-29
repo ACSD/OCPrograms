@@ -30,11 +30,11 @@ end
 
 function git:download(repo, file, target) print("downloading " .. file .. " from " .. repo)
     local url=git:raw(repo, file) print("url is ", url) --TODO remove debug print
-    --[[local result,response=pcall(internet.request,url) if result then
+    local result,response=pcall(internet.request,url) if result then
         local raw="" for chunk in response do raw=raw..chunk end
         print("writing to "..target)
         local fout=io.open(target,"w") fout:write(raw) fout:close()
-    else print("failed, skipping") end --]]
+    else print("failed, skipping") end
 end
 
 function git:loadmanifest(manifest, i)
