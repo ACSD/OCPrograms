@@ -1,7 +1,7 @@
 {   ["src"] = {
         ["core"] = { "xafcore.lua" },
         ["graphic"] = {
-         	"button.lua",
+        "button.lua",
             "checkbox.lua",
             "component.lua",
             "list.lua",
