@@ -41,8 +41,13 @@ function git:loadmanifest(manifest, i)
     local files = {}
     if type(manifest) == "table" then
         for k, v in pairs(manifest) do
-            if type(v) == "string" then files[#files + 1] = v end
-            if type(v) == "table" then for _, f in pairs(git:loadmanifest(v, k .. "/")) do files[#files + 1] = f end end
+            if type(v) == "string" then files[#files + 1] = i .. "/" .. v end
+            if type(v) == "table" then 
+                for _, f in pairs(git:loadmanifest(v, i .. "/" .. k)) do 
+                    
+                    files[#files + 1] = f
+                end 
+            end
         end
     end
     return files
