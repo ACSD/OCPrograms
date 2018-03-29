@@ -28,7 +28,7 @@ function git:raw(repo, file)
     return "https://raw.githubusercontent.com/"..repo.."/master"..file
 end
 
-function git:download(repo, file, target) print("downloading "..file)
+function git:download(repo, file, target) print("downloading " .. file .. " from " .. repo)
     local url=git:raw(repo, file) print("url is ", url) --TODO remove debug print
     local result,response=pcall(internet.request,url) if result then
         local raw="" for chunk in response do raw=raw..chunk end
