@@ -27,6 +27,8 @@ local git = {}
 end TODO --]]
 
 function git:download(repo, file, target) print("downloading "..file)
+    if not require("component").isAvailable("internet") then io.stderr:write("gitprimitive requires an internet card to run.") return end
+    local internet = require("internet")
     local url="https://raw.github.com/"..repo.."/master"..file
     local result,response=pcall(internet.request,url) if result then
         local raw="" for chunk in response do raw=raw..chunk end
