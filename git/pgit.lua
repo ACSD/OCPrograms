@@ -25,7 +25,24 @@ function git:contents(repo,dir)
         else files[#files+1]=dir.."/"..t[i].name end
     end return files, directories
 end
-function git:fetch(repo, file)
-    
+function git:download(repo, file) print("downloading "..file)
+    local url="https://raw.github.com/"..repo.."/master"..file
+    local result,response=pcall(internet.request,url) if result then
+        local raw="" for chunk in response do raw=raw..chunk end
+        print("writing to "..target..files[i])
+        local fout=io.open(target..files[i],"w")
+        fout:write(raw) fout:close()
+    else print("failed, skipping") end
+end
+function git:load(manifest, i)
+    if type(manifest) == "table" then
+        for k, v in pairs(manifest) do
+            print(i, k, type(k), v, type(v))
+            if type(v) == "table" then
+                git:load(v, i .. "    ")
+            end
+                        
+        end
+    end
 end
 return git
