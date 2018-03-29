@@ -13,13 +13,13 @@
             "textfield.lua"
         },
         ["network"] = {
-         	"client.lua"
-            "dnsclient.lua"
-            "dnsserver.lua"
-            "dtpclient.lua"
-            "dtpserver.lua"
-            "ftpclient.lua"
-            "ftpserver.lua"
+            "client.lua",
+            "dnsclient.lua",
+            "dnsserver.lua",
+            "dtpclient.lua",
+            "dtpserver.lua",
+            "ftpclient.lua",
+            "ftpserver.lua",
             "server.lua"
         },
         ["utility"] = {
