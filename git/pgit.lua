@@ -25,11 +25,13 @@ local internet = require("internet")
 end TODO --]]
 
 function git:download(repo, file, target) print("downloading "..file)
-    local url="https://raw.github.com/"..repo.."/master"..file
+    print("requesting", "https://raw.githubusercontnt.com/", repo, "/master", file, target)
+    local url="https://raw.githubusercontnt.com/"..repo.."/master"..file
+    print("url is ", url)
     local result,response=pcall(internet.request,url) if result then
         local raw="" for chunk in response do raw=raw..chunk end
-        print("writing to "..target..file)
-        local fout=io.open(target..file,"w") fout:write(raw) fout:close()
+        print("writing to "..target)
+        local fout=io.open(target,"w") fout:write(raw) fout:close()
     else print("failed, skipping") end
 end
 
