@@ -1,6 +1,6 @@
 local git = {}
 
-function git:contents(repo,dir)
+--[[function git:contents(repo,dir)
     if not require("component").isAvailable("internet") then io.stderr:write("gitprimitive requires an internet card to run.") return end
     local internet = require("internet")
     
@@ -24,25 +24,26 @@ function git:contents(repo,dir)
             for i=1,#subdirs do table.insert(directories,subdirs[i]) end
         else files[#files+1]=dir.."/"..t[i].name end
     end return files, directories
-end
-function git:download(repo, file) print("downloading "..file)
+end TODO --]]
+
+function git:download(repo, file, target) print("downloading "..file)
     local url="https://raw.github.com/"..repo.."/master"..file
     local result,response=pcall(internet.request,url) if result then
         local raw="" for chunk in response do raw=raw..chunk end
-        print("writing to "..target..files[i])
-        local fout=io.open(target..files[i],"w")
-        fout:write(raw) fout:close()
+        print("writing to "..target..file)
+        local fout=io.open(target..file,"w") fout:write(raw) fout:close()
     else print("failed, skipping") end
 end
-function git:load(manifest, i)
+
+function git:loadmanifest(manifest, i)
+    local files = {}
     if type(manifest) == "table" then
         for k, v in pairs(manifest) do
-            print(i, k, type(k), v, type(v))
-            if type(v) == "table" then
-                git:load(v, i .. "    ")
-            end
-                        
+            if type(v) == "string" then files[#files + 1] = v end
+            if type(v) == "table" then for _, f in pairs(git:loadmanifest(v, k .. "/")) do files[#files + 1] = f end end
         end
     end
+    return files
 end
+
 return git
