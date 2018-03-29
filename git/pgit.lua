@@ -41,7 +41,7 @@ function git:loadmanifest(manifest, i)
     local files = {} local directories = {}
     if type(manifest) == "table" then
         for k, v in pairs(manifest) do
-            if type(v) == "string" then files[#files + 1] = i .. v end
+            if type(v) == "string" then files[#files + 1] = i .. "/" .. v end
             if type(v) == "table" then 
                 directories[#directories + 1 ] = i .. "/" .. k
                 local subfiles, subdirectories = git:loadmanifest(v, i .. "/" .. k)
