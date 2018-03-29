@@ -26,7 +26,7 @@ end TODO --]]
 
 function git:download(repo, file, target) print("downloading "..file)
     print("requesting", "https://raw.githubusercontnt.com/", repo, "/master", file, target)
-    local url="https://raw.githubusercontnt.com/"..repo.."/master"..file
+    local url="https://raw.githubusercontent.com/"..repo.."/master"..file
     print("url is ", url)
     local result,response=pcall(internet.request,url) if result then
         local raw="" for chunk in response do raw=raw..chunk end
