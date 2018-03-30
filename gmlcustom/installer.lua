@@ -5,8 +5,8 @@ local shell = require("shell")
 
 local config = {
   ["err_nointnternet"] = "installxaf requires an internet card",
-  ["xaf"] = "https://raw.githubusercontent.com/ACSD/OCPrograms/gmlcustom/master/package/gmlcustom.tar",
-  ["tar"] = "https://raw.githubusercontent.com/ACSD/OCPrograms/gmlcustom/master/package/tar.lua"
+  ["xaf"] = "https://raw.githubusercontent.com/ACSD/OCPrograms/master/gmlcustom/gmlcustom.tar",
+  ["tar"] = "https://raw.githubusercontent.com/ACSD/OCPrograms/master/gmlcustom/tar.lua"
 }
 if not component.isAvailable("internet") then io.stderr:write(config.err_nointernet) print("") return end
 
