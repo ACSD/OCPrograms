@@ -10,7 +10,7 @@ local config = {
 }
 if not component.isAvailable("internet") then io.stderr:write(config.err_nointernet) print("") return end
 
-local curdir = shell.getWorkingDirectory() local tardir = "/usr/lib"
+local curdir = shell.getWorkingDirectory() local tardir = "/usr/lib/gml"
 if not fs.exists(tardir) then fs.makeDirectory(tardir) end
 if not fs.exists(tardir .. "/xaf.tar") then 
 	shell.execute("wget '" .. config.xaf .. "' " .. tardir .. "/gmlcustom.tar", _ENV) 
